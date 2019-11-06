@@ -25,5 +25,8 @@ function canLocate(){
 }
 
 window.onload = function() {
+
+alert("JS");
+
   canLocate();
 };
