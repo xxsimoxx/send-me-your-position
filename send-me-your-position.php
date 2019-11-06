@@ -2,7 +2,7 @@
 
 /**
  * -----------------------------------------------------------------------------
- * Plugin Name: Send me your position
+ * Plugin Name: Send me your position 2
  * Description: ClassicPress plugin to add a button that sends your position via WhatsApp
  * Version: 0.0.1
  * Author: Gieffe edizioni srl
@@ -30,20 +30,20 @@ class Send_Position {
 	public function __construct() {
 		add_action( 'wp_enqueue_scripts', [$this, 'register_script'] );
 		add_shortcode( 'smyp', [$this, 'button_shortcode'] );
-		
 	}
 
 	public function register_script() {
-		wp_register_script( 'smyp-script', plugins_url( '/scripts/smyp.js', __FILE__ ), array(), '1.0.0', false  );
-		wp_register_style( 'smyp-style', plugins_url( '/styles/smyp.css', __FILE__ ), array(), '1.0.0', 'all'  );
+		wp_register_script( 'smyp-script', plugins_url( '/scripts/smyp.js', __FILE__ ), array(), '1.0.0', true );
+		wp_register_style( 'smyp-style', plugins_url( '/styles/smyp.css', __FILE__ ), array(), '1.0.0', 'all' );
+		// wp_enqueue_script('smyp-script'); <-funziona
+		// wp_enqueue_style('smyp-style');
 
 		//		echo"<script>console.log('register')</script>";
 
 	}
 
-
 	public function button_shortcode( $atts, $content = null ) {
-		wp_enqueue_script('smyp-script');
+		//wp_enqueue_script('smyp-script');
 		wp_enqueue_style('smyp-style');
 		//if( ! wp_style_is( "smyp-style", $list = 'enqueued' ) ) { wp_enqueue_style('smyp-style'); }
 
