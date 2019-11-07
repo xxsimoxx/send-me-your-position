@@ -28,25 +28,62 @@ defined( 'ABSPATH' ) || exit;
 class Send_Position {
 
 	public function __construct() {
-		add_action( 'wp_enqueue_scripts', [$this, 'register_script'],1 );
+		add_action( 'wp_enqueue_scripts', [$this, 'register_script'] );
 		add_shortcode( 'smyp', [$this, 'button_shortcode'] );
+		add_action( 'plugins_loaded', [$this, 'load_textdomain'] );
+	}
+
+	public function load_textdomain() {
+		load_plugin_textdomain( 'smyp', false, basename( dirname( __FILE__ ) ) . '/languages' ); 
 	}
 
 	public function register_script() {
 		wp_register_script( 'smyp-script', plugins_url( '/scripts/smyp.js', __FILE__ ), array(), '1.0.0', true );
 		wp_register_style( 'smyp-style', plugins_url( '/styles/smyp.css', __FILE__ ), array(), '1.0.0', 'all' );
 	}
-
+	
+	/**
+	*
+	* Shortcode syntax
+	* [smyp wa="+1 555 4567" askname=1]button text[/smyp]
+	*
+	*/
 	public function button_shortcode( $atts, $content = null ) {
-		if( ! wp_style_is( "smyp-style", $list = 'enqueued' ) ){ 
-			wp_enqueue_style('smyp-style'); 
+		$values = shortcode_atts( array(
+			'wa'   		=> "",
+			'askname'	=> 1,
+		), $atts );
+		
+		// Let's sanitize and validate phone number
+		$wa = preg_replace ( '/[^0-9\+]/' , '' , $values['wa'] );
+		if ( ! preg_match ( '/^\+[0-9]+$/' , $wa ) ){
+			// If something is wrong don't warn normal users
+			if ( current_user_can( 'edit_posts' ) ){
+				return esc_attr__( 'Please check your shortcode. The "wa" attribute must be set and must be in international format (only you can see this message).', 'smyp' ) . '<a href="' . get_edit_post_link() . '">' . esc_html__( 'Edit post.', 'smyp' ). '</a>';
+			} else {
+				return "ddd";
+			}
+		} else {
+			// Localize and pass parameters to JavaScript
+			// the debug parameter works only with the smyp-debug.js
+			$js_params = array(
+				'person_message' => esc_attr__( 'Please enter your name.', 'smyp' ),
+				'geo_error'      => esc_attr__( 'Sorry, can\'t get your position!', 'smyp' ),
+				'geo_prompt'     => esc_attr__( 'Be sure to let me know your position!', 'smyp' ),
+				'wa'             => $wa,
+				'askname'        => (bool) $values['askname']
+			);
+			wp_localize_script( 'smyp-script', 'js_params', $js_params );
+			// Enqueue styles and scripts if they are not already
+			if( ! wp_script_is( "smyp-script", $list = 'enqueued' ) ){ 
+				wp_enqueue_script('smyp-script'); 
+			}
+			if( ! wp_style_is( "smyp-style", $list = 'enqueued' ) ){ 
+				wp_enqueue_style('smyp-style'); 
+			}
+			return '<button class="smyp-button" onclick="smypSend()">' . $content . '</button><div id="smyp-error"></div>';
 		}
-		if( ! wp_script_is( "smyp-script", $list = 'enqueued' ) ){ 
-			wp_enqueue_script('smyp-script'); 
-		}
-		return '<button class="smyp-button" onclick="smypSend()">' . $content .'</button>';
 	}
-
 }
 
 new Send_Position;
