@@ -1,0 +1,59 @@
+# Copyright (C) 2019 Gieffe edizioni srl
+# This file is distributed under the same license as the Send me your position plugin.
+msgid ""
+msgstr ""
+"Project-Id-Version: Send me your position 0.0.1\n"
+"Last-Translator: root <simone@gieffeedizioni.it>\n"
+"Language-Team: Italian\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-11-07T14:22:38+01:00\n"
+"PO-Revision-Date: 2019-11-07 14:24+0100\n"
+"X-Generator: WP-CLI 2.3.0\n"
+"X-Domain: smyp\n"
+"Language: it\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. Plugin Name of the plugin
+msgid "Send me your position"
+msgstr ""
+
+#. Plugin URI of the plugin
+msgid "https://github.com/xxsimoxx/send-me-your-position"
+msgstr ""
+
+#. Description of the plugin
+msgid ""
+"ClassicPress plugin to add a button that sends your position via WhatsApp"
+msgstr ""
+
+#. Author of the plugin
+msgid "Gieffe edizioni srl"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "https://www.gieffeedizioni.it/classicpress"
+msgstr ""
+
+#: send-me-your-position.php:62
+msgid ""
+"Please check your [smyp] shortcode. The \"wa\" attribute must be set and "
+"must be in international format (only you can see this message)."
+msgstr ""
+
+#: send-me-your-position.php:62
+msgid "Edit post."
+msgstr ""
+
+#: send-me-your-position.php:69
+msgid "Please enter your name."
+msgstr ""
+
+#: send-me-your-position.php:70
+msgid "Sorry, can't get your position!"
+msgstr ""
+
+#: send-me-your-position.php:71
+msgid "Be sure to let me know your position!"
+msgstr ""
