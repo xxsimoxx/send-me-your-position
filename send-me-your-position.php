@@ -59,13 +59,12 @@ class Send_Position {
 		if ( ! preg_match ( '/^\+[0-9]+$/' , $wa ) ){
 			// If something is wrong don't warn normal users
 			if ( current_user_can( 'edit_posts' ) ){
-				return esc_attr__( 'Please check your shortcode. The "wa" attribute must be set and must be in international format (only you can see this message).', 'smyp' ) . '<a href="' . get_edit_post_link() . '">' . esc_html__( 'Edit post.', 'smyp' ). '</a>';
+				return esc_attr__( 'Please check your [smyp] shortcode. The "wa" attribute must be set and must be in international format (only you can see this message).', 'smyp' ) . '<a href="' . get_edit_post_link() . '">' . esc_html__( 'Edit post.', 'smyp' ). '</a>';
 			} else {
-				return "ddd";
+				return "";
 			}
 		} else {
 			// Localize and pass parameters to JavaScript
-			// the debug parameter works only with the smyp-debug.js
 			$js_params = array(
 				'person_message' => esc_attr__( 'Please enter your name.', 'smyp' ),
 				'geo_error'      => esc_attr__( 'Sorry, can\'t get your position!', 'smyp' ),
@@ -81,7 +80,7 @@ class Send_Position {
 			if( ! wp_style_is( "smyp-style", $list = 'enqueued' ) ){ 
 				wp_enqueue_style('smyp-style'); 
 			}
-			return '<button class="smyp-button" onclick="smypSend()">' . $content . '</button><div id="smyp-error"></div>';
+			return '<button class="smyp-button smyp-button-wa" onclick="smypSend()">' . $wasvg.$content . '</button><div id="smyp-error"></div>';
 		}
 	}
 }
