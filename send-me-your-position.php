@@ -31,21 +31,10 @@ class Send_Position {
 		add_action( 'wp_enqueue_scripts', [$this, 'register_script'] );
 		add_shortcode( 'smyp', [$this, 'button_shortcode'] );
 		add_action( 'plugins_loaded', [$this, 'load_textdomain'] );
-		add_filter( 'plugin_row_meta', [$this, 'hide_view_details'] , 10, 4 );
 	}
 
 	public function load_textdomain() {
 		load_plugin_textdomain( 'smyp', false, basename( dirname( __FILE__ ) ) . '/languages' ); 
-	}
-
-
-	// Remove "view details" until it get interesting with CP 2 plugin directory
-	public function hide_view_details( $plugin_meta, $plugin_file, $plugin_data, $status ){
-		if($plugin_data['Name'] == 'Send me your position'){
-			array_push( $plugin_meta, $plugin_meta[2] );
-			unset($plugin_meta[2]);
-		}
-		return $plugin_meta;
 	}
 
 	public function register_script() {
@@ -91,7 +80,7 @@ class Send_Position {
 			if( ! wp_style_is( "smyp-style", $list = 'enqueued' ) ){ 
 				wp_enqueue_style('smyp-style'); 
 			}
-			return '<button class="smyp-button smyp-button-wa" onclick="smypSend()">' . $wasvg.$content . '</button><div id="smyp-error"></div>';
+			return '<button class="smyp-button smyp-button-wa" onclick="smypSend()">' . $content . '</button><div id="smyp-error"></div>';
 		}
 	}
 }
