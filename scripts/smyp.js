@@ -24,7 +24,7 @@ function smypSend() {
 	}
 }
 
-function failPosition(error){
+function failPosition(){
 	document.getElementById("smyp-error").innerHTML=js_params.geo_error;
 	smypButtonDisable();
 }
