@@ -22,5 +22,6 @@ They will be guided through WhatsApp API to send you a message with a Google Map
 The plugin doesn't collect *ANY* information.
 
 ## What it does not does not do
-- Open in a new window (that's for prevent Chrome to block like a popup)
+- Open in a new window (that's for prevent Chrome to block like a popup).
 - Send the message via WhatsApp. It only prepares it.
+- Deal with WhatsApp Business API.
