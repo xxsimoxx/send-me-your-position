@@ -1,3 +1,7 @@
+.smyp-container{
+}
+
+
 .smyp-button{
 	font-size: 2em;
 	font-weight: bold;
@@ -15,8 +19,15 @@
 	margin: 0 15px 0 0;
 }
 
-#smyp-error{
+#smyp-message{
 	font-size: 1.5em;
-	color: red;
 	padding-top: 10px;
+}
+
+.smyp-warn{
+	color: orange;
+}
+
+.smyp-error{
+	color: red;
 }

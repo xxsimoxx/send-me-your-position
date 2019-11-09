@@ -1,11 +1,16 @@
 var destphone=js_params.wa;
+var messagebox = document.getElementById("smyp-message");
 
 function smypCanLocate(){
 	navigator.permissions.query({name:'geolocation'}).then(function(result) {
 		if (result.state == 'prompt') {
-			document.getElementById("smyp-error").innerHTML=js_params.geo_prompt;
+			messagebox.innerHTML=js_params.geo_prompt;
+			messagebox.classList.add("smyp-warn");
+			messagebox.classList.remove("smyp-error");
 		} else if (result.state == 'denied') {
-			document.getElementById("smyp-error").innerHTML=js_params.geo_error;
+			messagebox.innerHTML=js_params.geo_error;
+			messagebox.classList.add("smyp-error");
+			messagebox.classList.remove("smyp-warn");
 			smypButtonDisable();
 		}
 	});
@@ -25,7 +30,9 @@ function smypSend() {
 }
 
 function failPosition(){
-	document.getElementById("smyp-error").innerHTML=js_params.geo_error;
+	messagebox.innerHTML=js_params.geo_error;
+	messagebox.classList.remove("smyp-warn");
+	messagebox.classList.add("smyp-error");
 	smypButtonDisable();
 }
 

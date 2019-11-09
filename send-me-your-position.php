@@ -38,8 +38,8 @@ class Send_Position {
 	}
 
 	public function register_script() {
-		wp_register_script( 'smyp-script', plugins_url( '/scripts/smyp.js', __FILE__ ), array(), '1.0.0', true );
-		wp_register_style( 'smyp-style', plugins_url( '/styles/smyp.css', __FILE__ ), array(), '1.0.0', 'all' );
+		wp_register_script( 'smyp-script', plugins_url( '/scripts/smyp.js', __FILE__ ), array(), '1.0.1', true );
+		wp_register_style( 'smyp-style', plugins_url( '/styles/smyp.css', __FILE__ ), array(), '1.0.1', 'all' );
 	}
 	
 	/**
@@ -80,7 +80,8 @@ class Send_Position {
 			if( ! wp_style_is( "smyp-style", $list = 'enqueued' ) ){ 
 				wp_enqueue_style('smyp-style'); 
 			}
-			return '<button class="smyp-button smyp-button-wa" onclick="smypSend()">' . $content . '</button><div id="smyp-error"></div>';
+			
+			return '<div class="smyp-container"><button class="smyp-button smyp-button-wa" onclick="smypSend()">' . $content . '</button><div id="smyp-message"></div></div>';
 		}
 	}
 }
