@@ -1,6 +1,6 @@
 # Send me your position
 
-A shortcode that adds a button that allows your visitors to send to you their position via WhatsApp.
+A shortcode that adds a button that allows your visitors to send to you their position via WhatsApp (using [wa.me](https://wa.me)).
 
 ## Why... and how it works
 
@@ -13,7 +13,7 @@ They will be guided through WhatsApp API to send you a message with a Google Map
 [smyp wa="+1 555 4567" askname=1]button text[/smyp]
 ```
 - Enclose the message you want to show in the shortcode.
-- **Specify your phone number** in international format.
+- **Specify your phone number** in international format with "wa" parameter.
 - Set askname=0 if you don't want the plugin to ask their name
 
 ## GDPR
