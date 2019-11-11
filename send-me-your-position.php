@@ -64,8 +64,8 @@ class Send_Position {
 				return "";
 			}
 		} else {
-			// Remove the starting + to conform to WhatsApp API
-			$wa = preg_replace ( '/^\+/', '', $wa );
+			// Remove the starting + or +00 to conform to WhatsApp API
+			$wa = preg_replace ( '/^\+0*/', '', $wa );
 			// Localize and pass parameters to JavaScript
 			$js_params = array(
 				'person_message' => esc_attr__( 'Please enter your name.', 'smyp' ),
