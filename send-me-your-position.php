@@ -55,8 +55,8 @@ class Send_Position {
 		), $atts );
 		
 		// Let's sanitize and validate phone number
-		$wa = preg_replace ( '/[^0-9\+]/' , '' , $values['wa'] );
-		if ( ! preg_match ( '/^\+[0-9]+$/' , $wa ) ){
+		$wa = preg_replace ( '/[^0-9\+]/', '', $values['wa'] );
+		if ( ! preg_match ( '/^\+[0-9]+$/', $wa ) ){
 			// If something is wrong don't warn normal users
 			if ( current_user_can( 'edit_posts' ) ){
 				return esc_attr__( 'Please check your [smyp] shortcode. The "wa" attribute must be set and must be in international format (only you can see this message).', 'smyp' ) . '<a href="' . get_edit_post_link() . '">' . esc_html__( 'Edit post.', 'smyp' ). '</a>';
@@ -64,6 +64,8 @@ class Send_Position {
 				return "";
 			}
 		} else {
+			// Remove the starting + to conform to WhatsApp API
+			$wa = preg_replace ( '/^\+/', '', $wa );
 			// Localize and pass parameters to JavaScript
 			$js_params = array(
 				'person_message' => esc_attr__( 'Please enter your name.', 'smyp' ),
