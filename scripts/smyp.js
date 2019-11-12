@@ -1,11 +1,16 @@
 var destphone=js_params.wa;
+var messagebox=document.getElementById("smyp-message");
 
 function smypCanLocate(){
 	navigator.permissions.query({name:'geolocation'}).then(function(result) {
 		if (result.state == 'prompt') {
-			document.getElementById("smyp-error").innerHTML=js_params.geo_prompt;
+			messagebox.innerHTML=js_params.geo_prompt;
+			messagebox.classList.add("smyp-warn");
+			messagebox.classList.remove("smyp-error");
 		} else if (result.state == 'denied') {
-			document.getElementById("smyp-error").innerHTML=js_params.geo_error;
+			messagebox.innerHTML=js_params.geo_error;
+			messagebox.classList.add("smyp-error");
+			messagebox.classList.remove("smyp-warn");
 			smypButtonDisable();
 		}
 	});
@@ -24,20 +29,23 @@ function smypSend() {
 	}
 }
 
-function failPosition(error){
-	document.getElementById("smyp-error").innerHTML=js_params.geo_error;
+function failPosition(){
+	messagebox.innerHTML=js_params.geo_error;
+	messagebox.classList.remove("smyp-warn");
+	messagebox.classList.add("smyp-error");
 	smypButtonDisable();
 }
 
 function sendPosition(position) {
 	if (js_params.askname){
 		var person=prompt(js_params.person_message);
-		var message=encodeURIComponent(person+"\n");
+		var message=person+"\r\n";
 	} else {
 		var message="";
 	}
 	var mapsUrl="https://www.google.com/maps/search/?api=1&query=" + position.coords.latitude+","+position.coords.longitude;
-	var WAapi = "https://api.whatsapp.com/send?phone="+destphone+"&text="+message+encodeURIComponent(mapsUrl);
+	message=encodeURIComponent(message+mapsUrl);
+	var WAapi = "https://wa.me/"+destphone+"?text="+message;
 	window.open(WAapi,'_self',false)
 }
 
