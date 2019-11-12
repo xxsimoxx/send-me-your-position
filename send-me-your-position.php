@@ -76,10 +76,10 @@ class Send_Position {
 			);
 			wp_localize_script( 'smyp-script', 'js_params', $js_params );
 			// Enqueue styles and scripts if they are not already
-			if( ! wp_script_is( "smyp-script", $list = 'enqueued' ) ){ 
+			if( ! wp_script_is( "smyp-script", "enqueued" ) ){ 
 				wp_enqueue_script('smyp-script'); 
 			}
-			if( ! wp_style_is( "smyp-style", $list = 'enqueued' ) ){ 
+			if( ! wp_style_is( "smyp-style", "enqueued" ) ){ 
 				wp_enqueue_style('smyp-style'); 
 			}
 			// Return the button
