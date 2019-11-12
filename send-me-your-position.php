@@ -82,7 +82,7 @@ class Send_Position {
 			if( ! wp_style_is( "smyp-style", $list = 'enqueued' ) ){ 
 				wp_enqueue_style('smyp-style'); 
 			}
-			
+			// Return the button
 			return '<div class="smyp-container"><button class="smyp-button smyp-button-wa" onclick="smypSend()">' . $content . '</button><div id="smyp-message"></div></div>';
 		}
 	}
