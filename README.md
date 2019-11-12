@@ -34,5 +34,10 @@ Personalize your button with these CSS selectors
 - `.smyp-warn` for warning messages
 - `.smyp-error` for error messages
 
+<<<<<<< HEAD
 ----
 This plugin is made with ♥ specifically for [ClassicPress](https://www.classicpress.net).
+=======
+-----
+This plugin is made with ♥ specifically for [ClassicPress](https://www.classicpress.net).
+>>>>>>> 7be2fbd64d85eee9a15c8de41fa99f30915014de
