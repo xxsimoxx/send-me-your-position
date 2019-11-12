@@ -35,4 +35,4 @@ Personalize your button with these CSS selectors
 - `.smyp-error` for error messages
 
 <HR>
-<center>This plugin is made with ♥ specifically for [ClassicPress](https://www.classicpress.net).</center>
+This plugin is made with ♥ specifically for [ClassicPress](https://www.classicpress.net).
