@@ -19,8 +19,8 @@ The script can also prompt for a name that will be sent in the message.
 
 | parameter | use                                               | example          | mandatory |
 | --------- | ------------------------------------------------- | ---------------- | --------- |
-| wa        | you WhatsApp phone number in international format | wa="+1 555 4567" | [X]       |
-| askname   | Prompt for a name? (default 1)                    | askname=0        | [ ]       | 
+| wa        | you WhatsApp phone number in international format | wa="+1 555 4567" | yes       |
+| askname   | Prompt for a name? (default 1)                    | askname=0        | no        | 
 
 
 ## GDPR
