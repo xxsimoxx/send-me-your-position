@@ -7,6 +7,7 @@ A shortcode that adds a button that allows your visitors to send to you their po
 Have to go to your not much technology-savvy customer?
 Point her/him to the page where the shortcode lives (maybe using a smartphone :-).
 They will be guided through WhatsApp API to send you a message with a Google Maps link.
+The script can also prompt for a name that will be sent in the message.
 
 ## Usage
 ```
@@ -15,6 +16,12 @@ They will be guided through WhatsApp API to send you a message with a Google Map
 - Enclose the message you want to show in the shortcode.
 - **Specify your phone number** in international format with "wa" parameter.
 - Set askname=0 if you don't want the plugin to ask their name
+
+| parameter | use                                               | example          | mandatory |
+| --------- | ------------------------------------------------- | ---------------- | --------- |
+| wa        | you WhatsApp phone number in international format | wa="+1 555 4567" | [X]       |
+| askname   | Prompt for a name? (default 1)                    | askname=0        | [ ]       | 
+
 
 ## GDPR
 The plugin doesn't collect *ANY* information.
@@ -25,7 +32,7 @@ The plugin doesn't collect *ANY* information.
 - Deal with WhatsApp Business API.
 
 ## Styling
-Personalize your button with these CSS selectors
+Personalize your button with these CSS selectors.
 
 | selector                   | function                    |
 | -------------------------- | ----------------------------|
@@ -37,4 +44,4 @@ Personalize your button with these CSS selectors
 | `.smyp-error`              | for error messages          |
 
 -----
-This plugin is made with ♥ specifically for [ClassicPress](https://www.classicpress.net).
+This plugin is made with ♥ for [ClassicPress](https://www.classicpress.net).
