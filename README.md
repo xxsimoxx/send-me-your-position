@@ -44,4 +44,4 @@ Personalize your button with these CSS selectors.
 | `.smyp-error`              | for error messages          |
 
 -----
-This plugin is made with ♥ for [ClassicPress](https://www.classicpress.net).
+[Gieffe edizioni](https://www.gieffeedizioni.it) made this with ♥ for [ClassicPress](https://www.classicpress.net).
