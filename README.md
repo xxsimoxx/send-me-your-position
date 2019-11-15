@@ -26,13 +26,15 @@ The plugin doesn't collect *ANY* information.
 
 ## Styling
 Personalize your button with these CSS selectors
- 
-- `.smyp-container` for the main container
-- `.smyp-button` for the button itself
-- `.smyp-button-wa:before` for the WhatsApp icon
-- ` #smyp-message` for the message container
-- `.smyp-warn` for warning messages
-- `.smyp-error` for error messages
+
+| selector                   | function                    |
+| -------------------------- | ----------------------------|
+| `.smyp-container`          | for the main container      |
+| `.smyp-button`             | for the button itself       |
+| `.smyp-button-wa:before`   | for the WhatsApp icon       |
+| ` #smyp-message`           | for the message container   |
+| `.smyp-warn`               | for warning messages        |
+| `.smyp-error`              | for error messages          |
 
 -----
 This plugin is made with ♥ specifically for [ClassicPress](https://www.classicpress.net).
