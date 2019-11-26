@@ -4,13 +4,12 @@
  * -----------------------------------------------------------------------------
  * Plugin Name: Send me your position
  * Description: ClassicPress plugin to add a button that sends your position via WhatsApp
- * Version: 0.0.2
+ * Version: 0.0.3
  * Author: Gieffe edizioni srl
  * Author URI: https://www.gieffeedizioni.it/classicpress
  * Plugin URI: https://github.com/xxsimoxx/send-me-your-position
  * Text Domain: smyp
  * Domain Path: /languages
- * GitHub Plugin URI: xxsimoxx/send-me-your-position
  * -----------------------------------------------------------------------------
  * This is free software released under the terms of the General Public License,
  * version 2, or later. It is distributed WITHOUT ANY WARRANTY; without even the
@@ -23,12 +22,16 @@
 
 namespace xxsimoxx\smyp;
 
+// Add auto updater
+// https://codepotent.com/classicpress/plugins/update-manager/
+require_once( 'classes/UpdateClient.class.php' );
+
 defined( 'ABSPATH' ) || exit;
 
 class Send_Position {
 
 	public function __construct() {
-		add_action( 'wp_enqueue_scripts', [$this, 'register_script'] );
+		add_action( 'wp_enqueue_scripts', [$this, 'register_script'], 5 );
 		add_shortcode( 'smyp', [$this, 'button_shortcode'] );
 		add_action( 'plugins_loaded', [$this, 'load_textdomain'] );
 	}
@@ -43,16 +46,20 @@ class Send_Position {
 	}
 
 	private function sanitize_wa_phone( $phone ){
+	
 		// delete spaces
 		$phone = str_replace( " ","", $phone );
+		
 		// check that number is in international format
 		if ( ! preg_match ( '/^\+[0-9]+$/', $phone ) ){
 			return FALSE;
 		} else {
+		
 			// Remove the starting + or +00 to conform to WhatsApp API
 			return preg_replace ( '/^\+0*/', '', $phone );
 		}
 	}	
+	
 	/**
 	*
 	* Shortcode syntax
@@ -67,14 +74,17 @@ class Send_Position {
 		
 		// Let's sanitize and validate phone number
 		$wa = $this->sanitize_wa_phone( $values['wa'] );
+		
+		// If something is wrong with the number...		
 		if ( FALSE === $wa ) {
-			// If something is wrong don't warn normal users
+			// Let's warn only admins/editors
 			if ( current_user_can( 'edit_posts' ) ){
 				return esc_attr__( 'Please check your [smyp] shortcode. The "wa" attribute must be set and must be in international format (only you can see this message).', 'smyp' ) . '<a href="' . get_edit_post_link() . '">' . esc_html__( 'Edit post.', 'smyp' ). '</a>';
 			} else {
 				return "";
 			}
 		} else {
+			
 			// Localize and pass parameters to JavaScript
 			$js_params = array(
 				'person_message' => esc_attr__( 'Please enter your name.', 'smyp' ),
@@ -84,6 +94,7 @@ class Send_Position {
 				'askname'        => (bool) $values['askname']
 			);
 			wp_localize_script( 'smyp-script', 'js_params', $js_params );
+			
 			// Enqueue styles and scripts if they are not already
 			if( ! wp_script_is( "smyp-script", "enqueued" ) ){ 
 				wp_enqueue_script('smyp-script'); 
@@ -91,6 +102,7 @@ class Send_Position {
 			if( ! wp_style_is( "smyp-style", "enqueued" ) ){ 
 				wp_enqueue_style('smyp-style'); 
 			}
+			
 			// Return the button
 			return '<div class="smyp-container"><button class="smyp-button smyp-button-wa" onclick="smypSend()">' . $content . '</button><div id="smyp-message"></div></div>';
 		}
