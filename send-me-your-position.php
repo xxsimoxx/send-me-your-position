@@ -10,7 +10,6 @@
  * Plugin URI: https://github.com/xxsimoxx/send-me-your-position
  * Text Domain: smyp
  * Domain Path: /languages
- * GitHub Plugin URI: xxsimoxx/send-me-your-position
  * -----------------------------------------------------------------------------
  * This is free software released under the terms of the General Public License,
  * version 2, or later. It is distributed WITHOUT ANY WARRANTY; without even the
@@ -22,6 +21,10 @@
  */
 
 namespace xxsimoxx\smyp;
+
+// Add auto updater
+// https://codepotent.com/classicpress/plugins/update-manager/
+require_once( 'classes/UpdateClient.class.php' );
 
 defined( 'ABSPATH' ) || exit;
 
