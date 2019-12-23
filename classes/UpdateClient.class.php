@@ -25,7 +25,7 @@
  */
 
 // EDIT: Make this unique. Example: YourDevName\YourPluginName;
-namespace XXSimoXX\SendMeYourPosition;
+namespace XXSimoXX\SendMeYourPositions;
 
 // EDIT: URL where Update Manager is installed; with trailing slash!
 const UPDATE_SERVER = 'https://software.gieffeedizioni.it/';
