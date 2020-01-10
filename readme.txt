@@ -1,7 +1,7 @@
 === send me your position ===
 Plugin Name:        send me your position
 Description:        Button that allows your visitors to send to you their position
-Version:            0.0.5
+Version:            0.0.6
 Text Domain:        smyp
 Domain Path:        /languages
 Requires PHP:       5.6
@@ -10,7 +10,7 @@ Tested:             4.9.99
 Author:             Gieffe edizioni
 Author URI:         https://www.gieffeedizioni.it
 Plugin URI:         https://software.gieffeedizioni.it
-Download link:      https://github.com/xxsimoxx/send-me-your-position/releases/download/v0.0.5/send-me-your-position.zip
+Download link:      https://github.com/xxsimoxx/send-me-your-position/releases/download/v0.0.6/send-me-your-position.zip
 License:            GPLv2
 License URI:        https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -29,6 +29,8 @@ The script can also prompt for a name that will be sent in the message.
 
 For more info look at README.md
 
+To help us know the number of active installations of this plugin, we collect and store anonymized data when the plugin check in for updates. The date and unique plugin identifier are stored as plain text and the requesting URL is stored as a non-reversible hashed value. This data is stored for up to 28 days.
+
 == Installation ==
 
 1) **Download** the zip file to your local computer
@@ -46,6 +48,9 @@ For more info look at README.md
 6 — Click to **Activate** the plugin
 
 == Changelog ==
+= 0.0.6 =
+* GDPR notice
+
 = 0.0.5 =
 * Updated Update Manager
 

@@ -24,7 +24,7 @@ The script can also prompt for a name that will be sent in the message.
 
 
 ## GDPR
-The plugin doesn't collect *ANY* information.
+To help us know the number of active installations of this plugin, we collect and store anonymized data when the plugin check in for updates. The date and unique plugin identifier are stored as plain text and the requesting URL is stored as a non-reversible hashed value. This data is stored for up to 28 days.
 
 ## What it does not does not do
 - Open in a new window (that's for prevent Chrome to block like a popup).
