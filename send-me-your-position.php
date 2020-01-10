@@ -4,7 +4,7 @@
  * -----------------------------------------------------------------------------
  * Plugin Name: Send me your position
  * Description: ClassicPress plugin to add a button that sends your position via WhatsApp
- * Version: 0.0.4
+ * Version: 0.0.5
  * Author: Gieffe edizioni srl
  * Author URI: https://www.gieffeedizioni.it/classicpress
  * Plugin URI: https://github.com/xxsimoxx/send-me-your-position

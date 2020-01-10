@@ -1,7 +1,7 @@
 === send me your position ===
 Plugin Name:        send me your position
 Description:        Button that allows your visitors to send to you their position
-Version:            0.0.4
+Version:            0.0.5
 Text Domain:        smyp
 Domain Path:        /languages
 Requires PHP:       5.6
@@ -10,7 +10,7 @@ Tested:             4.9.99
 Author:             Gieffe edizioni
 Author URI:         https://www.gieffeedizioni.it
 Plugin URI:         https://software.gieffeedizioni.it
-Download link:      https://github.com/send-me-your-position/vars/releases/download/v0.0.4/send-me-your-position.zip
+Download link:      https://github.com/send-me-your-position/vars/releases/download/v0.0.5/send-me-your-position.zip
 License:            GPLv2
 License URI:        https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -22,6 +22,12 @@ Have to go to your not much technology-savvy customer?
 Point her/him to the page where the shortcode lives (maybe using a smartphone :-).
 They will be guided through WhatsApp API to send you a message with a Google Maps link.
 The script can also prompt for a name that will be sent in the message.
+
+# Usage
+
+`[smyp wa="+1 555 4567" askname=1]button text[/smyp]`
+
+For more info look at README.md
 
 == Installation ==
 
@@ -39,13 +45,10 @@ The script can also prompt for a name that will be sent in the message.
 5 — Click to **Install** the plugin
 6 — Click to **Activate** the plugin
 
-== USAGE ==
-
-`[smyp wa="+1 555 4567" askname=1]button text[/smyp]`
-
-For more info look at README.md
-
 == Changelog ==
+= 0.0.5 =
+* Updated Update Manager
+
 = 0.0.4 =
 * Updated Update Manager
 * code cleanup
